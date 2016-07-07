@@ -13,6 +13,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem;
@@ -91,7 +92,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             public boolean onTabSelected(int position, boolean wasSelected) {
                 // Do something cool here...
                 Snackbar snackbar = Snackbar
-                        .make(coordinatorLayout, "SnackBar", Snackbar.LENGTH_LONG);
+                        .make(coordinatorLayout, "SnackBar click me!!", Snackbar.LENGTH_LONG).setAction("Close", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Toast.makeText(v.getContext(),"make something more!!!", Toast.LENGTH_LONG).show();
+                            }
+                        });
                 snackbar.show();
                 return true;
             }
